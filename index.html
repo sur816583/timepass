@@ -1,0 +1,60 @@
+<!-- <table border="1">
+    <tr>
+        <td colspan="2" align="center">A</td>
+
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>C</td>
+    </tr>
+</table>
+<table border="1">
+    <tr>
+        <td rowspan="2" align="center">A</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>C</td>
+    </tr>
+</table> -->
+<table border="1">
+    <thead>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Avatar</th>
+
+    </thead>
+    <tbody id="tbody-result">
+        <tr>
+            <td>sample id</td>
+            <td id="email-result">sample Email</td>
+            <td>sample name</td>
+            <td>sample avatar</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    url="https://reqres.in/api/users?page=2"
+    fetch(url)
+    .then(res=>res.json())
+    .then(result=>{
+        records=result.data
+        console.log(records[0]["email"])
+        console.table(records)
+        
+        output="";
+        for(let i=0;i<records.length;i++){
+            output+=`<tr>`
+                output+=`<td>${records[i]['id']}</td>`
+                output+=`<td>${records[i]['email']}</td>`
+                output+=`<td>${records[i]['first_name']} ${records[i]['last_name']}</td>`
+                output+=`<td><img src="${records[i]['avatar']}"></td>`
+                output+=`</tr>`
+                
+        }
+        console.log(output)
+        document.getElementById("tbody-result").innerHTML=output
+    })
+</script>
