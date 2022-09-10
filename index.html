@@ -1,60 +1,43 @@
-<!-- <table border="1">
-    <tr>
-        <td colspan="2" align="center">A</td>
-
-    </tr>
-    <tr>
-        <td>B</td>
-        <td>C</td>
-    </tr>
+<!DOCTYPE html>
+<html>
+<head>
+<title>CIA Institute - MongoDB Project</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+</head>
+<body class="d-flex flex-column h-100 container">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="navbar-nav">
+<a class="nav-link active" aria-current="page" href="#">Listing</a>
+<a class="nav-link" href="add.html">Add New</a>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<table class="table table-striped table-hover text-center">
+<thead>
+<th>Name</th>
+<th>Age</th>
+<th>City</th>
+<th>Action</th>
+</thead>
+<tbody id="tbody">
+</tbody>
+<tfoot>
+</tfoot>
 </table>
-<table border="1">
-    <tr>
-        <td rowspan="2" align="center">A</td>
-        <td>B</td>
-    </tr>
-    <tr>
-        <td>C</td>
-    </tr>
-</table> -->
-<table border="1">
-    <thead>
-        <th>ID</th>
-        <th>Email</th>
-        <th>Name</th>
-        <th>Avatar</th>
-
-    </thead>
-    <tbody id="tbody-result">
-        <tr>
-            <td>sample id</td>
-            <td id="email-result">sample Email</td>
-            <td>sample name</td>
-            <td>sample avatar</td>
-        </tr>
-    </tbody>
-</table>
-
+<footer class="footer mt-auto py-3 bg-light">
+<div class="container text-center">
+<span class="text-muted"> &copy; CIA Institute 2022</span>
+</div>
+</footer>
+</body>
+<script src="script.js"></script>
 <script>
-    url="https://reqres.in/api/users?page=2"
-    fetch(url)
-    .then(res=>res.json())
-    .then(result=>{
-        records=result.data
-        console.log(records[0]["email"])
-        console.table(records)
-        
-        output="";
-        for(let i=0;i<records.length;i++){
-            output+=`<tr>`
-                output+=`<td>${records[i]['id']}</td>`
-                output+=`<td>${records[i]['email']}</td>`
-                output+=`<td>${records[i]['first_name']} ${records[i]['last_name']}</td>`
-                output+=`<td><img src="${records[i]['avatar']}"></td>`
-                output+=`</tr>`
-                
-        }
-        console.log(output)
-        document.getElementById("tbody-result").innerHTML=output
-    })
+getData();
 </script>
+</html>
